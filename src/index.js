@@ -20,16 +20,16 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get('/shoppi', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hola server')
 });
 
 routerApi(app);
 
 app.use(logError)
-app.use(errorHandler)
-app.use(boomErrorHandler)
 app.use(sqlErrorHandler)
+app.use(boomErrorHandler)
+app.use(errorHandler)
 
 
 app.listen(port, () => {

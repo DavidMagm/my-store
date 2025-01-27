@@ -6,7 +6,7 @@ const customersRoutes = require('./customer.route.js');
 
 function routerApi(app) {
     const router = express.Router()
-    app.use('/shoppi', router)
+    app.use('/api', router)
     router.use('/users', usersRoutes)
     router.use('/customers', customersRoutes)
 }
