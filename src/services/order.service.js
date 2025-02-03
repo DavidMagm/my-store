@@ -19,12 +19,17 @@ class OrderService {
 
     async findOne(id) {
         const order = await models.Order.findByPk(id, {
-            include: ['customer']
+            include: ['customer', 'items']
         })
         if(!order) {
             throw boom.badRequest('no encontramos la orden')
         }
         return order
+    }
+
+    async addItems (data) {
+        const newItems = await models.OrderProduct.create(data)
+        return newItems
     }
 
     async update(id, change) {
