@@ -1,8 +1,8 @@
 const {Sequelize} = require('sequelize');
 const setupModels = require('../../models');
+const {config} = require('../../config');
 
-const sequelize = new Sequelize('my_store', 'samuel', 'root', {
-    host: 'localhost',
+const sequelize = new Sequelize(config.dbUrl, {
     dialect: 'postgres'
 });
 
