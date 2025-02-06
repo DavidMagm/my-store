@@ -3,7 +3,13 @@ const setupModels = require('../../models');
 const {config} = require('../../config');
 
 const sequelize = new Sequelize(config.dbUrl, {
-    dialect: 'postgres'
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false,
+        }
+    }
 });
 
 setupModels(sequelize);
