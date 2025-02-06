@@ -1,11 +1,17 @@
 'use strict';
 
-const {UserSchema} = require('../models/users')
+const { DataTypes } = require('sequelize'); 
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.addColumn('users', 'role', UserSchema.role)
+  async up (queryInterface) {
+    await queryInterface.addColumn('users', 'role', {
+      role: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        defaultValue: 'customer'
+      },
+    })
   },
 
   async down (queryInterface, Sequelize) {

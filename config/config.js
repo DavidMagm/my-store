@@ -6,12 +6,6 @@ module.exports = {
   development: {
     url: URI,
     dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-          require: true,
-          rejectUnauthorized: false,
-      }
-    }
   },
   production: {
     url: config.dbUrl,
