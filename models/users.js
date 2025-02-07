@@ -5,20 +5,20 @@ const UserSchema = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: DataTypes.INTEGER
     },
     email: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         unique: true,
     },
     password: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: DataTypes.STRING
     },
     role: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         defaultValue: 'customer'
     },
     createdAt: {
