@@ -1,6 +1,4 @@
-const { DataTypes, Sequelize, Model } = require('sequelize'); 
-const { get } = require('../src/routes/user.route');
-
+const { DataTypes, Sequelize, Model } = require('sequelize');
 
 const OrderSchema = {
     id: {
