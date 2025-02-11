@@ -25,6 +25,18 @@ const OrderSchema = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
+    },
+    // esto no es remomendable deberia ser por consulta de la base de datos
+    total: {
+        type: DataTypes.VIRTUAL,
+        get() {
+            if(this.items) {
+                return this.items.reduce((acc, item) => {
+                    return acc + (item.price * item.OrderProduct.amount)
+                }, 0)
+            }
+            return 0
+        }
     }
 };
 
